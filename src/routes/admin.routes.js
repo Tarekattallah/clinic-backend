@@ -1,0 +1,14 @@
+const express = require('express');
+const { getAllAppointments, getAllUsers, getReports, deleteUser, updateUserRole, createUser, updateUser } = require('../controllers/admin.controller');
+const { protect }   = require('../middlewares/auth.middleware');
+const { authorize } = require('../middlewares/role.middleware');
+const router = express.Router();
+router.use(protect, authorize('admin'));
+router.get('/appointments',       getAllAppointments);
+router.get('/users',              getAllUsers);
+router.post('/users',             createUser);
+router.put('/users/:id',          updateUser);
+router.delete('/users/:id',       deleteUser);
+router.patch('/users/:id/role',   updateUserRole);
+router.get('/reports',            getReports);
+module.exports = router;
