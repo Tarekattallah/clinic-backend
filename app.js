@@ -20,7 +20,8 @@ app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' }, // allow serving /uploads images
 }));
 app.use(cors({
-  origin:      process.env.FRONTEND_URL,
+  FRONTEND_URL=https://your-frontend.vercel.app
+  // origin:      process.env.FRONTEND_URL,
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));
