@@ -20,7 +20,7 @@ app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' }, // allow serving /uploads images
 }));
 app.use(cors({
-  FRONTEND_URL=https://your-frontend.vercel.app
+  https:clinic-frontend-vert.vercel.app
   // origin:      process.env.FRONTEND_URL,
   credentials: true,
 }));
