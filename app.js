@@ -30,6 +30,19 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // ── STATIC FILES ───────────────────────────────────────────────────────────────
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// ── SIMPLE TEST ROUTES (BEFORE notFound) ──
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'Backend is running!',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'healthy' });
+});
+
 // ── ROUTES ────────────────────────────────────────────────────────────────────
 app.use('/api/auth',            require('./src/routes/auth.routes'));
 app.use('/api/users',           require('./src/routes/user.routes'));
