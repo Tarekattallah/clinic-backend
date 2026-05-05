@@ -2,33 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.js",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/app.js"
-    },
-    {
-      "src": "/uploads/(.*)",
-      "dest": "/app.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/app.js"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "https://clinic-frontend-vert.vercel.app" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,PATCH,OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization" }
-      ]
+      "dest": "api/index.js"
     }
   ]
 }
